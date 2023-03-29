@@ -6,29 +6,23 @@ This is a simple python program which uses a machine learning model to detect to
 
 ![App Screenshot](./screenshots/screenshot-1.png)
 
-## Prerequisites
+## Installation
 
-Create a .env file in the root directory of this project and add the variable from the .env.example file and add your [Twitter API keys.](https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api)
+You may need to install some dependencies before running the program(some of the modules cannot be installed directly by using `requirements.txt`).
 
 ```bash
+git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-python.git
+cd twitter-toxicity-detection-python
 pip3 install -r requirements.txt
-```
-
-or
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run
-
-```bash
 python3 detector.py
 ```
 
 or
 
 ```bash
+git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-python.git
+cd twitter-toxicity-detection-python
+pip install -r requirements.txt
 python detector.py
 ```
 

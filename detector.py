@@ -96,8 +96,7 @@ def search_tweets():
         text_label = ttk.Label(tweet_widget, text=tweet.text,
                                wraplength=400, justify="left")
         text_label.grid(row=1, column=0, columnspan=2, sticky="w")
-        created_label = ttk.Label(
-            tweet_widget, text=tweet.created_at.strftime("%Y-%m-%d %H:%M:%S"))
+        created_label = ttk.Label(tweet_widget, text=tweet.created_at.strftime("%B %d, %Y at %I:%M %p"))
         created_label.grid(row=2, column=0, sticky="w")
 
         if tweet.favorite_count >= 1000:
