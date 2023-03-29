@@ -11,8 +11,6 @@ This is a simple python program which uses a machine learning model to detect to
 Create a .env file in the root directory of this project and add the variable from the .env.example file and add your [Twitter API keys.](https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api)
 
 ```bash
-
-```bash
 pip3 install -r requirements.txt
 ```
 
