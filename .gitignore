@@ -1,0 +1,4 @@
+*.pkl
+.env
+model.pkl
+.DS_Store
