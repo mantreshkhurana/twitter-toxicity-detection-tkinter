@@ -2,7 +2,7 @@
 
 This is a simple python program which uses a machine learning model to detect toxicity in tweets. It implements a simple GUI using tkinter and uses sklearn to train the model and predict the toxicity of the tweet. This is a very basic project you can learn from it and create a better model, to check more about my AI/ML projects you can visit my company's [website.](https://www.spyxpo.com/)
 
-## Screenshot
+## Screenshots
 
 ![App Screenshot](./screenshots/screenshot-1.png)
 
