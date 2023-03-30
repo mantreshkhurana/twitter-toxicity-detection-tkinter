@@ -4,6 +4,7 @@ import os
 import pickle
 import tkinter as tk
 from tkinter import ttk
+from tkinter import messagebox
 import tweepy
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
@@ -11,8 +12,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from dotenv import load_dotenv
 
-# load the environment variables
-load_dotenv()
+if os.path.exists(".env"):
+    load_dotenv()
+else:
+    messagebox.showerror("Error", "Please create a .env file with the required environment variables, check .env.example for more info")
 
 # --------------APIs & auth--------------- # DO NOT UNCOMMENT THIS SECTION
 consumer_key = os.getenv("CONSUMER_KEY")
@@ -21,10 +24,12 @@ access_token = os.getenv("ACCESS_TOKEN")
 access_token_secret = os.getenv("ACCESS_TOKEN_SECRET")
 # --------------APIs & auth END--------------- # DO NOT UNCOMMENT THIS SECTION
 
+
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
+
 
 # load the data into a pandas dataframe
 df = pd.read_csv('models/hate_speech_model.csv')
