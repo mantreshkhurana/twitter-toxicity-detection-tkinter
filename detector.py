@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from dotenv import load_dotenv
 
+# load the .env file if it exists
 if os.path.exists(".env"):
     load_dotenv()
 else:
@@ -23,7 +24,6 @@ consumer_secret =os.getenv("CONSUMER_SECRET")
 access_token = os.getenv("ACCESS_TOKEN")
 access_token_secret = os.getenv("ACCESS_TOKEN_SECRET")
 # --------------APIs & auth END--------------- # DO NOT UNCOMMENT THIS SECTION
-
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)

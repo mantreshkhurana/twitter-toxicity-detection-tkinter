@@ -2,6 +2,14 @@
 
 This is a simple python program which uses a machine learning model to detect toxicity in tweets. It implements a simple GUI using tkinter and uses sklearn to train the model and predict the toxicity of the tweet. This is a very basic project you can learn from it and create a better model, to check more about my AI/ML projects you can visit my company's [website.](https://www.spyxpo.com/)
 
+## Tabel of Contents
+
+- [Twitter Toxicity Detection Python](#twitter-toxicity-detection-python)
+  - [Screenshots](#screenshots)
+  - [Installation](#installation)
+  - [Contributing](#contributing)
+  - [Author](#author)
+
 ## Screenshots
 
 ![App Screenshot](./screenshots/screenshot-1.png)
@@ -24,6 +32,22 @@ git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-python.g
 cd twitter-toxicity-detection-python
 pip install -r requirements.txt
 python detector.py
+```
+
+## Contributing
+
+Since this project took <1 hour to make you may find some bugs or you may want to add some features to it. You can contribute to this project by forking it and making a pull request(I am quite active on Github so if any issue arises I will try to fix it as soon as possible).
+
+After forking:
+
+```bash
+git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-python.git
+cd twitter-toxicity-detection-python
+git checkout -b <your-branch-name>
+# After adding your changes
+git add .
+git commit -m "your commit message"
+git push origin <your-branch-name>
 ```
 
 ## Author
