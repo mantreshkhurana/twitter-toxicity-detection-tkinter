@@ -113,8 +113,7 @@ def search_tweets():
         user_label = ttk.Label(
             tweet_widget, text=f"{tweet.user.name} (@{tweet.user.screen_name})")
         user_label.grid(row=0, column=0, sticky="w")
-        text_label = ttk.Label(tweet_widget, text=tweet.text,
-                               wraplength=400, justify="left")
+        text_label = ttk.Label(tweet_widget, text=tweet.text, wraplength=400, justify="left")
         text_label.grid(row=1, column=0, columnspan=2, sticky="w")
         created_label = ttk.Label(tweet_widget, text=tweet.created_at.strftime("%B %d, %Y at %I:%M %p"))
         created_label.grid(row=2, column=0, sticky="w")
@@ -140,13 +139,13 @@ def search_tweets():
         percentage = round((model.predict_proba(tweet_text)[0][1] * 100), 2)
 
         if percentage >= 65.00:
-            print(f"Toxic Tweet: {percentage}%")
+            print(f"Toxicity: {percentage}%")
             text_label.config(foreground="red")
             percentage_label = ttk.Label(
                 tweet_widget, text=f"{percentage}% Toxic", foreground="red", font="bold")
             percentage_label.grid(row=3, column=0, sticky="w")
         else:
-            print(f"Non Toxic Tweet: {percentage}%")
+            print(f"Toxicity: {percentage}%")
             text_label.config(foreground="green")
             percentage_label = ttk.Label(
                 tweet_widget, text=f"{percentage}% Toxic", foreground="green", font="bold")
