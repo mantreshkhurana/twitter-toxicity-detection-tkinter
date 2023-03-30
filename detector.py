@@ -30,7 +30,6 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-
 # load the data into a pandas dataframe
 df = pd.read_csv('models/hate_speech_model.csv')
 
@@ -103,21 +102,16 @@ def search_tweets():
         created_label = ttk.Label(tweet_widget, text=tweet.created_at.strftime("%B %d, %Y at %I:%M %p"))
         created_label.grid(row=2, column=0, sticky="w")
 
-        if tweet.favorite_count >= 1000:
-            if tweet.favorite_count >= 1000000:
-                if tweet.favorite_count >= 1000000000:
-                    favorite_label = ttk.Label(
-                        tweet_widget, text=f"❤ {round((tweet.favorite_count/1000000000), 1)}B")
-                    favorite_label.grid(row=2, column=1, sticky="e")
-                else:
-                    favorite_label = ttk.Label(
-                        tweet_widget, text=f"❤ {round((tweet.favorite_count/1000000), 1)}M")
-                    favorite_label.grid(row=2, column=1, sticky="e")
-            else:
-                favorite_label = ttk.Label(
-                    tweet_widget, text=f"❤ {round((tweet.favorite_count/1000), 1)}K")
-                favorite_label.grid(row=2, column=1, sticky="e")
-                
+        if tweet.favorite_count >= 1000000000:
+            favorite_label = ttk.Label(tweet_widget, text=f"❤ {round((tweet.favorite_count/1000000000), 1)}B")
+        elif tweet.favorite_count >= 1000000:
+            favorite_label = ttk.Label(tweet_widget, text=f"❤ {round((tweet.favorite_count/1000000), 1)}M")
+        elif tweet.favorite_count >= 1000:
+            favorite_label = ttk.Label(tweet_widget, text=f"❤ {round((tweet.favorite_count/1000), 1)}K")
+        else:
+            favorite_label = ttk.Label(tweet_widget, text=f"❤ {tweet.favorite_count}")
+        favorite_label.grid(row=2, column=1, sticky="e")
+
         retweet_label = ttk.Label(
             tweet_widget, text=f"♺ {tweet.retweet_count}")
         retweet_label.grid(row=2, column=1, sticky="w")
@@ -129,13 +123,13 @@ def search_tweets():
         percentage = round((model.predict_proba(tweet_text)[0][1] * 100), 2)
 
         if percentage >= 65.00:
-            print("Toxic Tweet")
+            print(f"Toxic Tweet: {percentage}%")
             text_label.config(foreground="red")
             percentage_label = ttk.Label(
                 tweet_widget, text=f"{percentage}% Toxic", foreground="red", font="bold")
             percentage_label.grid(row=3, column=0, sticky="w")
         else:
-            print("Non-Toxic Tweet")
+            print(f"Non Toxic Tweet: {percentage}%")
             text_label.config(foreground="green")
             percentage_label = ttk.Label(
                 tweet_widget, text=f"{percentage}% Toxic", foreground="green", font="bold")
@@ -152,7 +146,7 @@ def search_tweets():
 root = tk.Tk()
 root.geometry("490x700")
 root.resizable(False, False)
-root.title("Twitter Toxicity Detector")
+root.title("Twitter Toxicity Detector - Accuracy {:.2f}%\n".format(accuracy * 100))
 
 search_frame = ttk.Frame(root, padding=10)
 search_frame.pack(fill="x")
@@ -162,13 +156,16 @@ username_label.grid(row=0, column=0, sticky="w")
 username_entry = ttk.Entry(search_frame)
 username_entry.grid(row=0, column=1, sticky="ew")
 username_entry.focus()
-count_label = ttk.Label(search_frame, text="Count:")
-count_label.grid(row=0, column=2, sticky="w")
+post_label = ttk.Label(search_frame, text="Posts:")
+post_label.grid(row=0, column=2, sticky="w")
 count_entry = ttk.Entry(search_frame, width=5)
 count_entry.grid(row=0, column=3, sticky="w")
 count_entry.insert(0, "10")
 search_button = ttk.Button(search_frame, text="Search", command=search_tweets)
 search_button.grid(row=0, column=4, sticky="e")
+
+# accuracy_label = ttk.Label(search_frame, text="Model Accuracy: {:.2f}%\n".format(accuracy * 100))
+# accuracy_label.grid(row=1, column=0, columnspan=3, sticky="we")
 
 tweet_frame = ttk.Frame(root, padding=10)
 tweet_frame.pack(fill="both", expand=True)
