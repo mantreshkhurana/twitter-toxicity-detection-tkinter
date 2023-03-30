@@ -13,6 +13,7 @@ from sklearn.linear_model import LogisticRegression
 from dotenv import load_dotenv
 import urllib.request
 
+# check if the internet is available
 try:
     urllib.request.urlopen('http://www.google.com')
     pass
@@ -38,6 +39,13 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
+
+try:
+    api.verify_credentials()
+    print("Authentication Working.")
+except:
+    messagebox.showerror("Error", "Error during authentication, check your .env file.")
+    exit()
 
 # load the data into a pandas dataframe
 df = pd.read_csv('models/hate_speech_model.csv')
