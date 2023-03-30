@@ -47,7 +47,7 @@ except:
     messagebox.showerror("Error", "Error during authentication, check your .env file.")
     exit()
 
-# load the data into a pandas dataframe
+# load the data into a pandas dataframe, ***YOU CAN USE YOUR OWN DATASET HERE, REMEMBER TO CHANGE THE COLUMN NAMES IN X & Y VARIABLES***
 df = pd.read_csv('models/hate_speech_model.csv')
 
 # split the data into feature and target variables
