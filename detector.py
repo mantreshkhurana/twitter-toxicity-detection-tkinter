@@ -11,12 +11,21 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from dotenv import load_dotenv
+import urllib.request
+
+try:
+    urllib.request.urlopen('http://www.google.com')
+    pass
+except:
+    messagebox.showerror("Error", "Internet connection not available.")
+    exit()
 
 # load the .env file if it exists
 if os.path.exists(".env"):
     load_dotenv()
 else:
     messagebox.showerror("Error", "Please create a .env file with the required environment variables, check .env.example for more info")
+    exit()
 
 # --------------APIs & auth--------------- # DO NOT UNCOMMENT THIS SECTION
 consumer_key = os.getenv("CONSUMER_KEY")
