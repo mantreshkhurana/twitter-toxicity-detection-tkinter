@@ -1,4 +1,3 @@
-# Project: Hate Speech Detector
 # Author: Mantresh Khurana
 
 import os
@@ -104,14 +103,16 @@ def search_tweets():
                 if tweet.favorite_count >= 1000000000:
                     favorite_label = ttk.Label(
                         tweet_widget, text=f"❤ {round((tweet.favorite_count/1000000000), 1)}B")
+                    favorite_label.grid(row=2, column=1, sticky="e")
                 else:
                     favorite_label = ttk.Label(
                         tweet_widget, text=f"❤ {round((tweet.favorite_count/1000000), 1)}M")
+                    favorite_label.grid(row=2, column=1, sticky="e")
             else:
                 favorite_label = ttk.Label(
                     tweet_widget, text=f"❤ {round((tweet.favorite_count/1000), 1)}K")
+                favorite_label.grid(row=2, column=1, sticky="e")
                 
-        favorite_label.grid(row=2, column=1, sticky="e")
         retweet_label = ttk.Label(
             tweet_widget, text=f"♺ {tweet.retweet_count}")
         retweet_label.grid(row=2, column=1, sticky="w")
