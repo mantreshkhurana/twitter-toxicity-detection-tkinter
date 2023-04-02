@@ -48,7 +48,7 @@ except:
     exit()
 
 # load the data into a pandas dataframe, ***YOU CAN USE YOUR OWN DATASET HERE, REMEMBER TO CHANGE THE COLUMN NAMES IN X & Y VARIABLES***
-df = pd.read_csv('datasets/hate_speech_model.csv')
+df = pd.read_csv('datasets/hate_speech.csv')
 
 # split the data into feature and target variables
 x = df['text']
@@ -71,7 +71,7 @@ predictions = model.predict(x_test)
 
 # calculate the accuracy of the model by comparing the predicted labels to the true labels
 accuracy = sum(predictions == y_test) / len(y_test)
-print("Model Accuracy(from datasets/hate_speech_model.csv):", accuracy * 100, "%\n")
+print("Model Accuracy(from datasets/hate_speech.csv):", accuracy * 100, "%\n")
 
 # function to search for tweets
 def search_tweets():
