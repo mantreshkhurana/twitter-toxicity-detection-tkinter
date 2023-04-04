@@ -25,12 +25,13 @@ except:
 if os.path.exists(".env"):
     load_dotenv()
 else:
-    messagebox.showerror("Error", "Please create a .env file with the required environment variables, check .env.example for more info")
+    messagebox.showerror(
+        "Error", "Please create a .env file with the required environment variables, check .env.example for more info")
     exit()
 
 # --------------APIs & auth--------------- # DO NOT UNCOMMENT THIS SECTION
 consumer_key = os.getenv("CONSUMER_KEY")
-consumer_secret =os.getenv("CONSUMER_SECRET")
+consumer_secret = os.getenv("CONSUMER_SECRET")
 access_token = os.getenv("ACCESS_TOKEN")
 access_token_secret = os.getenv("ACCESS_TOKEN_SECRET")
 # --------------APIs & auth END--------------- # DO NOT UNCOMMENT THIS SECTION
@@ -44,7 +45,8 @@ try:
     api.verify_credentials()
     print("Authentication Working.")
 except:
-    messagebox.showerror("Error", "Error during authentication, check your .env file.")
+    messagebox.showerror(
+        "Error", "Error during authentication, check your .env file.")
     exit()
 
 # load the data into a pandas dataframe, ***YOU CAN USE YOUR OWN DATASET HERE, REMEMBER TO CHANGE THE COLUMN NAMES IN X & Y VARIABLES***
@@ -113,19 +115,25 @@ def search_tweets():
         user_label = ttk.Label(
             tweet_widget, text=f"{tweet.user.name} (@{tweet.user.screen_name})")
         user_label.grid(row=0, column=0, sticky="w")
-        text_label = ttk.Label(tweet_widget, text=tweet.text, wraplength=400, justify="left")
+        text_label = ttk.Label(tweet_widget, text=tweet.text,
+                               wraplength=400, justify="left")
         text_label.grid(row=1, column=0, columnspan=2, sticky="w")
-        created_label = ttk.Label(tweet_widget, text=tweet.created_at.strftime("%B %d, %Y at %I:%M %p"))
+        created_label = ttk.Label(
+            tweet_widget, text=tweet.created_at.strftime("%B %d, %Y at %I:%M %p"))
         created_label.grid(row=2, column=0, sticky="w")
 
         if tweet.favorite_count >= 1000000000:
-            favorite_label = ttk.Label(tweet_widget, text=f"❤ {round((tweet.favorite_count/1000000000), 1)}B")
+            favorite_label = ttk.Label(
+                tweet_widget, text=f"❤ {round((tweet.favorite_count/1000000000), 1)}B")
         elif tweet.favorite_count >= 1000000:
-            favorite_label = ttk.Label(tweet_widget, text=f"❤ {round((tweet.favorite_count/1000000), 1)}M")
+            favorite_label = ttk.Label(
+                tweet_widget, text=f"❤ {round((tweet.favorite_count/1000000), 1)}M")
         elif tweet.favorite_count >= 1000:
-            favorite_label = ttk.Label(tweet_widget, text=f"❤ {round((tweet.favorite_count/1000), 1)}K")
+            favorite_label = ttk.Label(
+                tweet_widget, text=f"❤ {round((tweet.favorite_count/1000), 1)}K")
         else:
-            favorite_label = ttk.Label(tweet_widget, text=f"❤ {tweet.favorite_count}")
+            favorite_label = ttk.Label(
+                tweet_widget, text=f"❤ {tweet.favorite_count}")
         favorite_label.grid(row=2, column=1, sticky="e")
 
         retweet_label = ttk.Label(
@@ -159,10 +167,12 @@ def search_tweets():
     canvas_frame.update_idletasks()
     canvas.config(scrollregion=canvas_frame.bbox("all"))
 
+
 root = tk.Tk()
 root.geometry("490x700")
 root.resizable(False, False)
-root.title("Twitter Toxicity Detector - Accuracy {:.2f}%\n".format(accuracy * 100))
+root.title(
+    "Twitter Toxicity Detector - Accuracy {:.2f}%\n".format(accuracy * 100))
 
 search_frame = ttk.Frame(root, padding=10)
 search_frame.pack(fill="x")
