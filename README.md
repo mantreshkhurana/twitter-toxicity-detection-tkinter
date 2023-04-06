@@ -18,7 +18,7 @@ It supports both light and dark mode.
 
 | Light | Dark |
 | ----- | ---- |
-| ![Light](./screenshots/screenshot-light.png) | ![Light](./screenshots/screenshot-Dark.png)|
+| ![Light](./screenshots/screenshot-light.png) | ![Light](./screenshots/screenshot-dark.png)|
 
 ## Installation
 
