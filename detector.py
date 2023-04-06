@@ -3,8 +3,9 @@
 import os
 import pickle
 import tkinter as tk
-from tkinter import ttk
+from tkinter import Menu, PhotoImage, ttk
 from tkinter import messagebox
+import webbrowser
 import tweepy
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
@@ -167,26 +168,73 @@ def search_tweets():
     canvas_frame.update_idletasks()
     canvas.config(scrollregion=canvas_frame.bbox("all"))
 
-
 root = tk.Tk()
 root.geometry("490x700")
 root.resizable(False, False)
+app_icon = PhotoImage(file='images/logo.png')
+root.iconphoto(False, app_icon)
 root.title(
     "Twitter Toxicity Detector - Accuracy {:.2f}%\n".format(accuracy * 100))
+
+menubar = Menu(root)
+root.config(menu=menubar)
+file_menu = Menu(menubar, tearoff=False)
+help_menu = Menu(menubar, tearoff=False)
+
+# file menu item
+menubar.add_cascade(
+    label="File",
+    menu=file_menu,
+    underline=0
+)
+
+file_menu.add_command(
+    label='Exit',
+    command=root.destroy,
+)
+
+# help menu item
+menubar.add_cascade(
+    label="About",
+    menu=help_menu
+)
+help_menu.add_command(
+    label='Visit Website',
+    command=lambda: webbrowser.open('https://www.mantreshkhurana.com'),
+)
+help_menu.add_separator()
+help_menu.add_command(
+    label='Source Code',
+    command=lambda: webbrowser.open('https://github.com/mantreshkhurana/twitter-toxicity-detection-python'),
+)
+help_menu.add_command(
+    label='View License',
+    command=lambda: webbrowser.open(
+        'https://github.com/mantreshkhurana/twitter-toxicity-detection-python/blob/stable/LICENSE'),
+)
 
 search_frame = ttk.Frame(root, padding=10)
 search_frame.pack(fill="x")
 search_frame.columnconfigure(0, weight=1)
+
 username_label = ttk.Label(search_frame, text="Username:")
 username_label.grid(row=0, column=0, sticky="w")
+
 username_entry = ttk.Entry(search_frame)
 username_entry.grid(row=0, column=1, sticky="ew")
 username_entry.focus()
+
+author_label = ttk.Label(search_frame, text="This project was created by Mantresh Khurana", foreground="grey")
+author_label.grid(row=2, column=0, columnspan=5, sticky="w", pady=5, padx=90)
+author_label.configure(anchor="center")
+
 post_label = ttk.Label(search_frame, text="Posts:")
 post_label.grid(row=0, column=2, sticky="w")
+
 count_entry = ttk.Entry(search_frame, width=5)
 count_entry.grid(row=0, column=3, sticky="w")
 count_entry.insert(0, "10")
+
 search_button = ttk.Button(search_frame, text="Search", command=search_tweets)
 search_button.grid(row=0, column=4, sticky="e")
 
