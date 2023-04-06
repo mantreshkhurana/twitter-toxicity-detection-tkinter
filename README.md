@@ -14,7 +14,11 @@ This is a simple python program which uses a machine learning model to detect to
 
 ## Screenshots
 
-![App Screenshot](./screenshots/screenshot-1.png)
+It supports both light and dark mode.
+
+| Light | Dark |
+| ----- | ---- |
+| ![Light](./screenshots/screenshot-light.png) | ![Light](./screenshots/screenshot-Dark.png)|
 
 ## Installation
 
@@ -55,3 +59,10 @@ git push origin <your-branch-name>
 ## Author
 
 - [Mantresh Khurana](https://github.com/mantreshkhurana)
+
+## Credits
+
+- [Twitter](https://twitter.com/)
+- [Sklearn](https://scikit-learn.org/stable/)
+- [Python](https://www.python.org/)
+- [Tweepy](https://www.tweepy.org/)
