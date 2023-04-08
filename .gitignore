@@ -3,3 +3,6 @@
 model.pkl
 .DS_Store
 .vscode/
+*.spec
+dist/
+build/
