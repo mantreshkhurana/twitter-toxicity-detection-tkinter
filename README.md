@@ -27,8 +27,13 @@ You may need to install some dependencies before running the program(some of the
 ```bash
 git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-python.git
 cd twitter-toxicity-detection-python
-pip3 install -r requirements.txt
-python3 detector.py
+pip install -r requirements.txt
+touch .env
+echo "CONSUMER_KEY=<your_twitter_api_consumer_key>" >> .env # replace <your_twitter_api_consumer_key> with your Twitter API consumer key
+echo "CONSUMER_SECRET=<your_twitter_api_consumer_secret>" >> .env # replace <your_twitter_api_consumer_secret> with your Twitter API consumer secret
+echo "ACCESS_TOKEN=<your_twitter_api_access_token>" >> .env # replace <your_twitter_api_access_token> with your Twitter API access token
+echo "ACCESS_TOKEN_SECRET=<your_twitter_api_access_token_secret>" >> .env # replace <your_twitter_api_access_token_secret> with your Twitter API access token secret
+python detector.py
 ```
 
 or
@@ -36,8 +41,13 @@ or
 ```bash
 git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-python.git
 cd twitter-toxicity-detection-python
-pip install -r requirements.txt
-python detector.py
+pip3 install -r requirements.txt
+touch .env
+echo "CONSUMER_KEY=<your_twitter_api_consumer_key>" >> .env # replace <your_twitter_api_consumer_key> with your Twitter API consumer key
+echo "CONSUMER_SECRET=<your_twitter_api_consumer_secret>" >> .env # replace <your_twitter_api_consumer_secret> with your Twitter API consumer secret
+echo "ACCESS_TOKEN=<your_twitter_api_access_token>" >> .env # replace <your_twitter_api_access_token> with your Twitter API access token
+echo "ACCESS_TOKEN_SECRET=<your_twitter_api_access_token_secret>" >> .env # replace <your_twitter_api_access_token_secret> with your Twitter API access token secret
+python3 detector.py
 ```
 
 ## Contributing
