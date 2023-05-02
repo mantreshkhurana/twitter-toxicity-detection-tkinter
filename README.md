@@ -57,7 +57,7 @@ Since this project took <1 hour to make you may find some bugs or you may want t
 After forking:
 
 ```bash
-git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-tkinter.git
+git clone https://github.com/<your-username>/twitter-toxicity-detection-tkinter.git
 cd twitter-toxicity-detection-tkinter
 git checkout -b <your-branch-name>
 # After adding your changes
