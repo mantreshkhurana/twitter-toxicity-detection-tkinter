@@ -1,12 +1,12 @@
 <img src="./images/logo.png" width="50" height="50">
 
-# Twitter Toxicity Detection Python
+# Twitter Toxicity Detection Tkinter
 
 This is a simple python program which uses a machine learning model to detect toxicity in tweets. It implements a simple GUI using tkinter and uses sklearn to train the model and predict the toxicity of the tweet. This is a very basic project you can learn from it and create a better model, to check more about my AI/ML projects you can visit my company's [website.](https://www.spyxpo.com/)
 
 ## Tabel of Contents
 
-- [Twitter Toxicity Detection Python](#twitter-toxicity-detection-python)
+- [Twitter Toxicity Detection Tkinter](#twitter-toxicity-detection-tkinter)
   - [Screenshots](#screenshots)
   - [Installation](#installation)
   - [Contributing](#contributing)
@@ -25,8 +25,8 @@ It supports both light and dark mode.
 You may need to install some dependencies before running the program(some of the modules cannot be installed directly by using `requirements.txt`).
 
 ```bash
-git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-python.git
-cd twitter-toxicity-detection-python
+git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-tkinter.git
+cd twitter-toxicity-detection-tkinter
 pip install -r requirements.txt
 touch .env
 echo "CONSUMER_KEY=<your_twitter_api_consumer_key>" >> .env # replace <your_twitter_api_consumer_key> with your Twitter API consumer key
@@ -39,8 +39,8 @@ python detector.py
 or
 
 ```bash
-git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-python.git
-cd twitter-toxicity-detection-python
+git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-tkinter.git
+cd twitter-toxicity-detection-tkinter
 pip3 install -r requirements.txt
 touch .env
 echo "CONSUMER_KEY=<your_twitter_api_consumer_key>" >> .env # replace <your_twitter_api_consumer_key> with your Twitter API consumer key
@@ -57,8 +57,8 @@ Since this project took <1 hour to make you may find some bugs or you may want t
 After forking:
 
 ```bash
-git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-python.git
-cd twitter-toxicity-detection-python
+git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-tkinter.git
+cd twitter-toxicity-detection-tkinter
 git checkout -b <your-branch-name>
 # After adding your changes
 git add .
@@ -66,13 +66,13 @@ git commit -m "your commit message"
 git push origin <your-branch-name>
 ```
 
-## Author
-
-- [Mantresh Khurana](https://github.com/mantreshkhurana)
-
 ## Credits
 
 - [Twitter](https://twitter.com/)
 - [Sklearn](https://scikit-learn.org/stable/)
 - [Python](https://www.python.org/)
 - [Tweepy](https://www.tweepy.org/)
+
+## Author
+
+- [Mantresh Khurana](https://github.com/mantreshkhurana)
