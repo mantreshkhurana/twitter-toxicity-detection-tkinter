@@ -24,6 +24,12 @@ It supports both light and dark mode.
 
 You may need to install some dependencies before running the program(some of the modules cannot be installed directly by using `requirements.txt`).
 
+Get Twitter API keys from [here](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api).
+
+> Note: Make sure to apply for Twitter Elevated Access to use the Twitter API v2 endpoints, without elevated access you will not be able to use this app. (It's FREE until you reach the limit of 2,000,000 tweets per month)
+
+To get started with this project, follow these steps:
+
 ```bash
 git clone https://github.com/mantreshkhurana/twitter-toxicity-detection-tkinter.git
 cd twitter-toxicity-detection-tkinter
